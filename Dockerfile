@@ -1,19 +1,17 @@
 FROM openjdk:8-jre-alpine
 
-LABEL maintainer="ysenih@erpya.com" \
+LABEL maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
 	description="ADempiere gRPC All In One Server"
 
 ENV URL_REPO="https://github.com/erpcya/adempiere-gRPC-Server" \
 	BASE_VERSION="rt-16.0" \
 	BINARY_NAME="adempiere-gRPC-Server.zip"
 
-WORKDIR /opt/Apps/
-
-RUN echo "Install needed packages..." && \
+RUN	mkdir -p /opt/Apps && \
+	cd /opt/Apps && \
 	apk --no-cache add curl && \
-	echo "Get gRPC All In One Server Binary Release:${BASE_VERSION}..." && \
-	curl --output "$BINARY_NAME" -L "$URL_REPO/releases/download/$BASE_VERSION/$BINARY_NAME" && \
-	echo "Uncompress release file..." && \
+	curl --output "$BINARY_NAME" \
+		-L "$URL_REPO/releases/download/$BASE_VERSION/$BINARY_NAME" && \
 	unzip -o $BINARY_NAME && \
 	mv adempiere-gRPC-Server ADempiere-gRPC-Server && \
 	rm $BINARY_NAME
