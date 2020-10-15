@@ -2,14 +2,14 @@ server:
     port: 50059
     services:
        -   access
-       -   enrollment
-       -   dictionary
        -   business
        -   core
-       -   ui
        -   dashboarding
-       -   workflow
+       -   dictionary
+       -   enrollment
        -   log
+       -   ui
+       -   workflow
 database:
     host: localhost
     port: 5432
