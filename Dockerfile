@@ -11,7 +11,7 @@ ENV URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
 	DB_PORT="5432" \
 	DB_NAME="adempiere" \
 	DB_PASSWORD="adempiere" \
-	DB_TYPE="PostgreSQL" \
+	DB_TYPE="PostgreSQL" 
 
 RUN	mkdir -p /opt/Apps && \
 	cd /opt/Apps && \
