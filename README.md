@@ -18,7 +18,7 @@ server:
        -   log
        -   ui
        -   workflow
-       -   workflow
+       -   store
 database:
     host: localhost
     port: 5432
