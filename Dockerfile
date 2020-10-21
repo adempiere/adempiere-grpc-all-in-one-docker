@@ -28,7 +28,7 @@ COPY all_in_one_connection.yaml /opt/Apps/ADempiere-gRPC-Server/bin/all_in_one_c
 WORKDIR /opt/Apps/ADempiere-gRPC-Server/bin/
 
 # Set ENV in the connection file
-CMD sed -i "s|50059|$SERVER_PORT|g" all_in_one_connection.yaml && \
+CMD	sed -i "s|50059|$SERVER_PORT|g" all_in_one_connection.yaml && \
 	sed -i "s|localhost|$DB_HOST|g" all_in_one_connection.yaml && \
 	sed -i "s|5432|$DB_PORT|g" all_in_one_connection.yaml && \
 	sed -i "s|adempieredb|$DB_NAME|g" all_in_one_connection.yaml && \

@@ -36,8 +36,8 @@ Download docker image:
 Run with default connection:
 ```shell
 docker run -d \
-    --name adempiere-grpc-all-in-one \
     -it \
+    --name adempiere-grpc-all-in-one \
 	-p 50059:50059 \
 	erpya/adempiere-grpc-all-in-one
 ```
@@ -45,6 +45,7 @@ docker run -d \
 Run with custom connection:
 ```shell
 docker run -d \
+    -it \
     --name adempiere-grpc-all-in-one \
     -p 50059:50059 \
     -e "SERVER_PORT=50059" \
