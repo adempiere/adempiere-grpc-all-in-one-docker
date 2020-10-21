@@ -26,13 +26,13 @@ RUN	mkdir -p /opt/Apps && \
 COPY all_in_one_connection.yaml /opt/Apps/ADempiere-gRPC-Server/bin/all_in_one_connection.yaml
 
 CMD cd /opt/Apps/ADempiere-gRPC-Server/bin && \
-    sed i "s/50059/$SERVER_PORT/g" all_in_one_connection.yaml && \
-    sed i "s/localhost/$DB_HOST/g" all_in_one_connection.yaml && \
-    sed i "s/5432/$DB_PORT/g" all_in_one_connection.yaml && \
-    sed i "s/adempieredb/$DB_NAME/g" all_in_one_connection.yaml && \
-    sed i "s/adempiereuser/$DB_USER/g" all_in_one_connection.yaml && \
-    sed i "s/adempierepass/$DB_PASSWORD/g" all_in_one_connection.yaml && \
-    sed i "s/PostgreSQL/$DB_TYPE/g" all_in_one_connection.yaml && \
+    sed -i "s/50059/$SERVER_PORT/g" all_in_one_connection.yaml && \
+    sed -i "s/localhost/$DB_HOST/g" all_in_one_connection.yaml && \
+    sed -i "s/5432/$DB_PORT/g" all_in_one_connection.yaml && \
+    sed -i "s/adempieredb/$DB_NAME/g" all_in_one_connection.yaml && \
+    sed -i "s/adempiereuser/$DB_USER/g" all_in_one_connection.yaml && \
+    sed -i "s/adempierepass/$DB_PASSWORD/g" all_in_one_connection.yaml && \
+    sed -i "s/PostgreSQL/$DB_TYPE/g" all_in_one_connection.yaml && \
     'sh' 'adempiere-all-in-one-server' 'all_in_one_connection.yaml'
     
 WORKDIR /opt/Apps/ADempiere-gRPC-Server/bin/
