@@ -28,14 +28,40 @@ database:
     type: PostgreSQL
 ```
 
-Run the latest container with:
+Download docker image:
 ```shell
     docker pull erpya/adempiere-grpc-all-in-one
 ```
 
+Run with default connection:
 ```shell
-docker run --name adempiere-grpc-all-in-one -it \
+docker run -d \
+    --name adempiere-grpc-all-in-one \
+    -it \
 	-p 50059:50059 \
-	-v $(pwd)/all_in_one_connection.yaml:/opt/Apps/ADempiere-gRPC-Server/bin/all_in_one_connection.yaml \
 	erpya/adempiere-grpc-all-in-one
 ```
+
+Run with custom connection:
+```shell
+docker run -d \
+    --name adempiere-grpc-all-in-one \
+    -p 50059:50059 \
+    -e "SERVER_PORT=50059" \
+    -e "DB_HOST=Your-Database-Server-Address" \
+    -e "DB_NAME=Your-Database-Name" \
+    -e "DB_USER=Your-Database-User" \
+    -e "DB_PASSWORD=Your-Database-Password" \
+    -e "DB_TYPE=Your-Database-Type" \
+    erpya/adempiere-grpc-all-in-one
+```
+
+## Environment variables for the configuration
+
+ * `SERVER_PORT`: Indicates the port on which the gRPC service will start, by default its value is `50059`. Make sure that it is set to the same value as the TCP port in the container.
+ * `DB_HOST`: Database server address, by default its value is `localhost`.
+ * `DB_PORT`: Indicates the database listening port, by default its value is `5432`.
+ * `DB_NAME`: Name of the database, by default its value is `adempiere`.
+ * `DB_USER`: Database connection user, by default its value is `adempiere`.
+ * `DB_PASSWORD`: Password of the database connection, by default its value is `adempiere`.
+ * `DB_TYPE`: Database management system, by default is `PostgreSQL`.
