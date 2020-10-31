@@ -19,6 +19,7 @@ server:
        -   ui
        -   workflow
        -   store
+    log_level: WARNING
 database:
     host: localhost
     port: 5432
@@ -68,6 +69,7 @@ docker run -d \
     -e "DB_USER=Your-Database-User" \
     -e "DB_PASSWORD=Your-Database-Password" \
     -e "DB_TYPE=Your-Database-Type" \
+    -e "SERVER_LOG_LEVEL=Log Level (Default Warning)" \
     erpya/adempiere-grpc-all-in-one
 ```
 
@@ -80,3 +82,4 @@ docker run -d \
  * `DB_USER`: Database connection user, by default its value is `adempiere`.
  * `DB_PASSWORD`: Password of the database connection, by default its value is `adempiere`.
  * `DB_TYPE`: Database management system, by default is `PostgreSQL`.
+ * `SERVER_LOG_LEVEL`: Log Level for Server, by default is `WARNING`.

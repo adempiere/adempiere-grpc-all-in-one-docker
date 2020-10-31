@@ -11,6 +11,7 @@ server:
        -   ui
        -   workflow
        -   store
+    log_level: WARNING
 database:
     host: localhost
     port: 5432
