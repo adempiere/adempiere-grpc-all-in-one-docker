@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-alpine
 
 LABEL maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
-	description="ADempiere gRPC All In One Server"
+	description="ADempiere gRPC All In One Server used as ADempiere backend"
 
 ENV	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
 	BASE_VERSION="rt-17.3" \
