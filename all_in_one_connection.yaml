@@ -11,6 +11,7 @@ server:
        -   ui
        -   workflow
        -   store
+       -   pos
     log_level: WARNING
 database:
     host: localhost
