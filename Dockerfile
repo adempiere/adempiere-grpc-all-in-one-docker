@@ -4,7 +4,7 @@ LABEL maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
 	description="ADempiere gRPC All In One Server used as ADempiere backend"
 
 ENV	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
-	BASE_VERSION="rt-17.4" \
+	BASE_VERSION="rt-17.5" \
 	BINARY_NAME="adempiere-gRPC-Server.zip" \
 	SERVER_PORT="50059" \
 	DB_HOST="localhost" \
