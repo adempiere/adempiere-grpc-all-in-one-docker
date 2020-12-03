@@ -15,6 +15,7 @@ ENV	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
 	SERVER_LOG_LEVEL="WARNING"
 
 RUN	mkdir -p /opt/Apps && \
+	apk add ttf-dejavu && \
 	cd /opt/Apps && \
 	apk --no-cache add curl && \
 	curl --output "$BINARY_NAME" \
