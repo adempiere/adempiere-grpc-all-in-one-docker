@@ -18,13 +18,13 @@ RUN	apk --update --no-cache add && \
 		fontconfig && \
 		ttf-dejavu && \
 		curl && \
-	mkdir -p /opt/Apps && \
-	cd /opt/Apps && \
-	curl --output "$BINARY_NAME" \
+		mkdir -p /opt/Apps && \
+		cd /opt/Apps && \
+		curl --output "$BINARY_NAME" \
 		-L "$URL_REPO/releases/download/$BASE_VERSION/$BINARY_NAME" && \
-	unzip -o $BINARY_NAME && \
-	mv adempiere-gRPC-Server ADempiere-gRPC-Server && \
-	rm $BINARY_NAME
+		unzip -o $BINARY_NAME && \
+		mv adempiere-gRPC-Server ADempiere-gRPC-Server && \
+		rm $BINARY_NAME
 
 # Add connection template
 COPY all_in_one_connection.yaml /opt/Apps/ADempiere-gRPC-Server/bin/all_in_one_connection.yaml
