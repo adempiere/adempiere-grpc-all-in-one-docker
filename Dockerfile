@@ -14,10 +14,12 @@ ENV	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
 	DB_TYPE="PostgreSQL" \
 	SERVER_LOG_LEVEL="WARNING"
 
-RUN	mkdir -p /opt/Apps && \
-	apk add ttf-dejavu && \
+RUN	apk --update --no-cache add && \
+		fontconfig && \
+		ttf-dejavu && \
+		curl && \
+	mkdir -p /opt/Apps && \
 	cd /opt/Apps && \
-	apk --no-cache add curl && \
 	curl --output "$BINARY_NAME" \
 		-L "$URL_REPO/releases/download/$BASE_VERSION/$BINARY_NAME" && \
 	unzip -o $BINARY_NAME && \
