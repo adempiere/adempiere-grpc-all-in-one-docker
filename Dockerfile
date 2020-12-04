@@ -14,9 +14,9 @@ ENV	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
 	DB_TYPE="PostgreSQL" \
 	SERVER_LOG_LEVEL="WARNING"
 
-RUN	apk --update --no-cache add && \
-		fontconfig && \
-		ttf-dejavu && \
+RUN	apk --update --no-cache add \
+		fontconfig \
+		ttf-dejavu \
 		curl && \
 		mkdir -p /opt/Apps && \
 		cd /opt/Apps && \
