@@ -5,7 +5,7 @@ LABEL maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
 
 # Init ENV with default values
 ENV	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
-	BASE_VERSION="rt-18.0" \
+	BASE_VERSION="rt-18.1" \
 	BINARY_NAME="adempiere-gRPC-Server.zip" \
 	SERVER_PORT="50059" \
 	DB_HOST="localhost" \
