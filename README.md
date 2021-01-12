@@ -43,6 +43,13 @@ docker pull erpya/proxy-adempiere-api
 docker pull erpya/adempiere-vue
 ```
 
+## Run Docker Container
+
+Build docker image (for development only):
+```shell
+    docker build -t erpya/adempiere-grpc-all-in-one:dev -f ./Dockerfile .
+```
+
 Download docker image:
 ```shell
     docker pull erpya/adempiere-grpc-all-in-one
@@ -65,6 +72,7 @@ docker run -d \
     -p 50059:50059 \
     -e "SERVER_PORT=50059" \
     -e "DB_HOST=Your-Database-Server-Address" \
+    -e "DB_PORT=Your-Database-Server-Port" \
     -e "DB_NAME=Your-Database-Name" \
     -e "DB_USER=Your-Database-User" \
     -e "DB_PASSWORD=Your-Database-Password" \
