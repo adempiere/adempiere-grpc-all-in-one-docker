@@ -3,9 +3,9 @@ FROM adoptopenjdk/openjdk8:jre8u275-b01-alpine
 LABEL	maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
 	description="ADempiere gRPC All In One Server used as ADempiere backend"
 
-ARG	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
-	BASE_VERSION="rt-18.1" \
-	BINARY_NAME="adempiere-gRPC-Server.zip"
+ARG URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server"
+ARG BASE_VERSION="rt-18.1"
+ARG BINARY_NAME="adempiere-gRPC-Server.zip"
 
 # Init ENV with default values
 ENV	BASE_VERSION=$BASE_VERSION \
