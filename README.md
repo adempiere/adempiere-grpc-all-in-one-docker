@@ -43,6 +43,13 @@ docker pull erpya/proxy-adempiere-api
 docker pull erpya/adempiere-vue
 ```
 
+## Run Docker Container
+
+Build docker image (for development only):
+```shell
+    docker build -t erpya/adempiere-grpc-all-in-one:dev -f ./Dockerfile .
+```
+
 Download docker image:
 ```shell
     docker pull erpya/adempiere-grpc-all-in-one
@@ -53,8 +60,8 @@ Run with default connection:
 docker run -d \
     -it \
     --name adempiere-grpc-all-in-one \
-	-p 50059:50059 \
-	erpya/adempiere-grpc-all-in-one
+    -p 50059:50059 \
+    erpya/adempiere-grpc-all-in-one
 ```
 
 Run with custom connection:
@@ -64,7 +71,7 @@ docker run -d \
     --name adempiere-grpc-all-in-one \
     -p 50059:50059 \
     -e SERVER_PORT=50059 \
-	-e SERVICES_ENABLED="access; business; core; dashboarding; dictionary; enrollment; log; ui; workflow; store; pos;" \
+    -e SERVICES_ENABLED="access; business; core; dashboarding; dictionary; enrollment; log; ui; workflow; store; pos;" \
     -e SERVER_LOG_LEVEL="Log Level (Default Warning)" \
     -e DB_HOST="Your-Database-Server-Address" \
     -e DB_PORT="Your-Database-Server-Port" \
