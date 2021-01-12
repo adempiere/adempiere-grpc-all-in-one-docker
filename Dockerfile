@@ -10,12 +10,14 @@ ARG	URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server" \
 # Init ENV with default values
 ENV	BASE_VERSION=$BASE_VERSION \
 	SERVER_PORT="50059" \
+	SERVICES_ENABLED="access; business; core; dashboarding; dictionary; enrollment; log; ui; workflow; store; pos;" \
+	SERVER_LOG_LEVEL="WARNING" \
 	DB_HOST="localhost" \
 	DB_PORT="5432" \
 	DB_NAME="adempiere" \
+	DB_USER="adempiere" \
 	DB_PASSWORD="adempiere" \
-	DB_TYPE="PostgreSQL" \
-	SERVER_LOG_LEVEL="WARNING"
+	DB_TYPE="PostgreSQL"
 
 # Add system dependencies
 RUN	echo "nameserver 8.8.8.8" > /etc/resolv.conf && \
@@ -44,18 +46,10 @@ RUN	mkdir -p /opt/Apps && \
 		/var/lib/apt/list/* \
 		/tmp/*
 
-# Add connection template
-COPY all_in_one_connection.yaml /opt/Apps/ADempiere-gRPC-Server/bin/all_in_one_connection.yaml
+# Add connection template and start script files
+COPY "all_in_one_connection.yaml" "start.sh" "/opt/Apps/ADempiere-gRPC-Server/bin/"
 
 WORKDIR /opt/Apps/ADempiere-gRPC-Server/bin/
 
-# Set ENV in the connection file
-CMD	sed -i "s|50059|$SERVER_PORT|g" all_in_one_connection.yaml && \
-	sed -i "s|localhost|$DB_HOST|g" all_in_one_connection.yaml && \
-	sed -i "s|5432|$DB_PORT|g" all_in_one_connection.yaml && \
-	sed -i "s|adempieredb|$DB_NAME|g" all_in_one_connection.yaml && \
-	sed -i "s|adempiereuser|$DB_USER|g" all_in_one_connection.yaml && \
-	sed -i "s|adempierepass|$DB_PASSWORD|g" all_in_one_connection.yaml && \
-	sed -i "s|PostgreSQL|$DB_TYPE|g" all_in_one_connection.yaml && \
-	sed -i "s|WARNING|$SERVER_LOG_LEVEL|g" all_in_one_connection.yaml && \
-	'sh' 'adempiere-all-in-one-server' 'all_in_one_connection.yaml'
+# Start app
+CMD	'sh' 'start.sh'
