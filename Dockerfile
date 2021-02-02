@@ -3,7 +3,7 @@ FROM adoptopenjdk/openjdk8:jre8u275-b01-alpine
 LABEL	maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
 	description="ADempiere gRPC All In One Server used as ADempiere backend"
 
-ARG BASE_VERSION="rt-18.8"
+ARG BASE_VERSION="rt-19.1"
 ARG URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server"
 ARG BINARY_NAME="adempiere-gRPC-Server.zip"
 
