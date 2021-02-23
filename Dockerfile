@@ -52,4 +52,4 @@ COPY "all_in_one_connection.yaml" "start.sh" "/opt/Apps/ADempiere-gRPC-Server/bi
 WORKDIR /opt/Apps/ADempiere-gRPC-Server/bin/
 
 # Start app
-CMD	['sh', 'start.sh']
+CMD	'sh' 'start.sh'
