@@ -19,6 +19,7 @@ server:
        -   ui
        -   workflow
        -   store
+       -   updater
     log_level: WARNING
 database:
     host: localhost
@@ -55,31 +56,36 @@ Download docker image:
     docker pull erpya/adempiere-grpc-all-in-one
 ```
 
-Run with default connection:
-```shell
-docker run -d \
-    -it \
-    --name adempiere-grpc-all-in-one \
-    -p 50059:50059 \
-    erpya/adempiere-grpc-all-in-one
-```
-
-Run with custom connection:
+## Run service
+A simple run of service, note that you should change **DB_HOST**, **DB_NAME** and security values for login into DB
 ```shell
 docker run -d \
     -it \
     --name adempiere-grpc-all-in-one \
     -p 50059:50059 \
     -e SERVER_PORT=50059 \
-    -e SERVICES_ENABLED="access; business; core; dashboarding; dictionary; enrollment; log; ui; workflow; store; pos;" \
-    -e SERVER_LOG_LEVEL="Log Level (Default Warning)" \
-    -e DB_HOST="Your-Database-Server-Address" \
-    -e DB_PORT="Your-Database-Server-Port" \
-    -e DB_NAME="Your-Database-Name" \
-    -e DB_USER="Your-Database-User" \
-    -e DB_PASSWORD="Your-Database-Password" \
-    -e DB_TYPE="Your-Database-Type" \
+    -e SERVICES_ENABLED="access; business; core; dashboarding; dictionary; enrollment; log; ui; workflow; store; pos; updater;" \
+    -e SERVER_LOG_LEVEL="WARNING" \
+    -e DB_HOST="localhost" \
+    -e DB_PORT="5432" \
+    -e DB_NAME=\"adempiere\" \
+    -e DB_USER="adempiere" \
+    -e DB_PASSWORD="adempiere" \
+    -e DB_TYPE="PostgreSQL" \
     erpya/adempiere-grpc-all-in-one
+```
+
+## Test service
+Just a telnet for service
+```shell
+telnet localhost 50059
+```
+Result
+```shell
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+�
 ```
 
 ## Environment variables for the configuration
