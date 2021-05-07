@@ -59,8 +59,7 @@ docker pull erpya/adempiere-grpc-all-in-one
 ## Run service
 A simple run of service, note that you should change **DB_HOST**, **DB_PORT**, **DB_NAME** and security values for login into DB
 ```shell
-docker run -d \
-    -it \
+docker run -d -it \
     --name adempiere-grpc-all-in-one \
     -p 50059:50059 \
     -e SERVER_PORT=50059 \
