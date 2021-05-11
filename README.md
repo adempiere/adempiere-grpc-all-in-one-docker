@@ -67,7 +67,7 @@ docker run -d -it \
     -e SERVER_LOG_LEVEL="WARNING" \
     -e DB_HOST="localhost" \
     -e DB_PORT="5432" \
-    -e DB_NAME="adempiere" \
+    -e DB_NAME=\"adempiere\" \
     -e DB_USER="adempiere" \
     -e DB_PASSWORD="adempiere" \
     -e DB_TYPE="PostgreSQL" \
