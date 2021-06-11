@@ -19,7 +19,7 @@ RUN	echo "nameserver 8.8.8.8" > /etc/resolv.conf && \
 
 ARG URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server"
 ARG BINARY_NAME="adempiere-gRPC-Server.zip"
-ARG BASE_VERSION="rt-21.1"
+ARG BASE_VERSION="rt-21.2"
 
 # Init ENV with default values
 ENV	BASE_VERSION=$BASE_VERSION \
