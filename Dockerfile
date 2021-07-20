@@ -4,8 +4,7 @@ LABEL	maintainer="ysenih@erpya.com; EdwinBetanc0urt@outlook.com" \
 	description="ADempiere gRPC All In One Server used as ADempiere backend"
 
 # Add system dependencies
-RUN	echo "nameserver 8.8.8.8" > /etc/resolv.conf && \
-	echo "https://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/repositories && \
+RUN	echo "https://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/repositories && \
 	echo "https://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories && \
 	rm -rf /var/cache/apk/* && \
 	apk update && \
