@@ -48,19 +48,18 @@ docker pull erpya/adempiere-vue
 
 Build docker image (for development only):
 ```shell
-    docker build -t erpya/adempiere-grpc-all-in-one:dev -f ./Dockerfile .
+docker build -t erpya/adempiere-grpc-all-in-one:dev -f ./Dockerfile .
 ```
 
 Download docker image:
 ```shell
-    docker pull erpya/adempiere-grpc-all-in-one
+docker pull erpya/adempiere-grpc-all-in-one
 ```
 
 ## Run service
-A simple run of service, note that you should change **DB_HOST**, **DB_NAME** and security values for login into DB
+A simple run of service, note that you should change **DB_HOST**, **DB_PORT**, **DB_NAME** and security values for login into DB
 ```shell
-docker run -d \
-    -it \
+docker run -d -it \
     --name adempiere-grpc-all-in-one \
     -p 50059:50059 \
     -e SERVER_PORT=50059 \
