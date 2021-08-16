@@ -18,7 +18,7 @@ RUN	echo "https://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/r
 
 ARG URL_REPO="https://github.com/adempiere/adempiere-gRPC-Server"
 ARG BINARY_NAME="adempiere-gRPC-Server.zip"
-ARG BASE_VERSION="rt-21.8"
+ARG BASE_VERSION="rt-21.9"
 
 # Init ENV with default values
 ENV	BASE_VERSION=$BASE_VERSION \
